@@ -53,7 +53,7 @@ export default function App() {
     formData.append('imagen', file);
 
     try {
-      const res = await fetch('http://localhost:5000/reconocer', { method: 'POST', body: formData });
+      const res = await fetch('https://servicio-ia-herramientas.onrender.com/reconocer', { method: 'POST', body: formData });
       const data = await res.json();
       
       if (data.herramienta) {
@@ -74,7 +74,7 @@ export default function App() {
   // --- 2. BUSCAR EN BASE DE DATOS ---
   const buscarEnBD = async (nombre) => {
     try {
-      const res = await fetch(`http://localhost:3000/buscar?nombre=${nombre}`);
+      const res = await fetch(`https://backend-inventario-0avx.onrender.com/buscar?nombre=${nombre}`);
       const data = await res.json();
       setSearchResult(data);
     } catch (err) { alert("Error BD: " + err.message); }
@@ -84,7 +84,7 @@ export default function App() {
   const guardar = async () => {
     if (!tool) return;
     try {
-      await fetch('http://localhost:3000/guardar', {
+      await fetch('https://backend-inventario-0avx.onrender.com/guardar', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ herramienta: tool, cantidad: cant, pasillo })
