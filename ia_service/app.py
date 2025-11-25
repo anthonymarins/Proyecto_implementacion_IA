@@ -114,10 +114,10 @@ def reconocer():
         print(f"Error en predicción: {e}")
         return jsonify({'error': str(e)}), 500
 
-# --- RUTA DE SALUD (HEALTH CHECK) ---
+# --- RUTA DE SALUD (IMPORTANTE PARA RENDER) ---
 @app.route('/', methods=['GET'])
 def home():
-    return "<h1>🤖 El Cerebro IA está ACTIVO y ESCUCHANDO.</h1>", 200
+    return "<h1>✅ Servicio de IA Activo</h1>", 200
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
