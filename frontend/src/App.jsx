@@ -27,6 +27,7 @@ export default function App() {
   // Estado Buscar
   const [searchResult, setSearchResult] = useState(null); 
 
+  // --- SOLUCIÓN DE INGENIERÍA: CÁLCULO DERIVADO (Sin useEffect) ---
   // Calculamos el mensaje del experto directamente en el renderizado.
   let expertMsg = null;
   if (modo === 'registrar' && tool && REGLAS[tool]) {
